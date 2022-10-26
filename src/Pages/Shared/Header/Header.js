@@ -8,18 +8,19 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 
+
 const Header = () => {
 
     const { user, logOut } = useContext(AuthContext);
 
-    const handleLogOut =() =>{
+    const handleLogOut = () => {
         logOut()
-        .then( () =>{
+            .then(() => {
 
-        })
-        .catch(error =>{
-            console.error(error)
-        })
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
 
     return (
@@ -32,12 +33,14 @@ const Header = () => {
                         <Link className='text-white me-3 text-decoration-none' to='/'>Home</Link>
                         <Link className='text-white me-3 text-decoration-none' to='/course'>Course</Link>
                         <Link className='text-white me-3 text-decoration-none' to='/blog'>Blog</Link>
+                        <Link className='text-white me-3 text-decoration-none' to='/faq'>FaQ</Link>
+                        
                         <Link className='text-white me-3 text-decoration-none' to='/blog'>
                             {
                                 user?.uid ?
                                     <>
-                                    <Button onClick={handleLogOut}>Log Out</Button>
-                                    <span>{user?.displayName}</span>
+                                        <Button onClick={handleLogOut}>Log Out</Button>
+                                        <span>{user?.displayName}</span>
                                     </>
                                     :
                                     <>
@@ -47,7 +50,7 @@ const Header = () => {
                                     </>
                             }
                         </Link>
-                        <Link className='text-white me-3 text-decoration-none' to='/blog'>{user?.photoURL ?
+                        <Link className='text-white me-3 text-decoration-none' to='/profile'>{user?.photoURL ?
                             <Image
                                 style={{ height: '40px' }}
                                 roundedCircle
@@ -56,8 +59,8 @@ const Header = () => {
                             :
                             <FaUser></FaUser>
                         }</Link>
-                        
-                        
+
+
 
 
                     </Nav>
