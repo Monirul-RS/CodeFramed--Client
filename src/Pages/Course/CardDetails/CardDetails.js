@@ -2,17 +2,20 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaStar } from 'react-icons/fa';
+import './CardDetails.css'
+
 
 const CardDetails = ({ course }) => {
     console.log(course);
-    const {title, rating, img, total_class, details, class_duration, price, name } = course;
+    const { title, rating, img, total_class, details, class_duration, price, name } = course;
 
 
     return (
-        <Card className="text-center bg-dark text-white">
+
+        <Card className="text-center bg-dark shadow-lg text-white mt-5">
             <Card.Header className='fs-4 fw-bold text-info'>{name}</Card.Header>
             <Card.Body>
-            <Card.Img variant="top" src={img} />
+                <Card.Img variant="top" src={img} />
                 <Card.Title className='border rounded mt-1 text-info p-1'>{title}</Card.Title>
                 <Card.Text className='text-start'>
                     {details}
@@ -31,6 +34,7 @@ const CardDetails = ({ course }) => {
                 </div>
             </Card.Footer>
         </Card>
+
     );
 };
 

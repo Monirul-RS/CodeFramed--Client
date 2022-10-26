@@ -6,7 +6,7 @@ import RightSlide from '../RightSlide/RightSlide';
 const Course = () => {
     return (
         <div className='mt-5'>
-            <h1></h1>
+
             <Container>
                 <Row>
                     <Col lg='6'>

@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './LeftSideNav.css'
 
 const LeftSideNav = () => {
 
@@ -14,18 +15,18 @@ const LeftSideNav = () => {
         .then(data =>setCourses(data))
     }, [])
     return (
-        <div>
-            <h1>Grab your course</h1>
-            <div>
+        <div className='me-5 mt-5 left-div'>
+            <h1 className='text-start px-4 fw-bold text-primary'>Grab your course</h1>
+            <div className='text-start border rounded course-div p-5 text-white fw-semibold'>
                 {
-                    courses.map(course => <p 
+                    courses.map(course => <li 
                     key={course.id}>
-                    <Link className='text-decoration-none fs-3' to={`/course/${course.id}`}>{course.name}</Link>
-                    </p>)
+                    <Link className='text-decoration-none text-white fs-3' to={`/course/${course.id}`}>{course.name}</Link>
+                    </li>)
                 }                    
             </div>
         </div>
     );
 };
 
-export default LeftSideNav;<h2>Left Side nav</h2>
+export default LeftSideNav;
