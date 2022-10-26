@@ -1,0 +1,31 @@
+.course-det {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left:-80px;
+    column-gap: 20px;
+}
+
+@media only screen and (max-device-width: 700px) {
+
+    .course-det {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin-left: 15px;
+        margin-right: 10px;
+    }
+
+}
+
+@media only screen and (max-device-width: 480px) {
+
+    .course-det {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin-left: -40px;
+        margin-right: 10px;
+    }
+    .card-width{
+       
+    }
+
+}
