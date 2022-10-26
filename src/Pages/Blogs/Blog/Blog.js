@@ -1,6 +1,6 @@
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-import { FaArrowCircleRight, FaArrowRight } from 'react-icons/fa';
+import { FaArrowCircleRight } from 'react-icons/fa';
 
 const Blog = () => {
     return (

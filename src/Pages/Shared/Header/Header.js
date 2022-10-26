@@ -35,7 +35,7 @@ const Header = () => {
                         <Link className='text-white me-3 text-decoration-none' to='/blog'>Blog</Link>
                         <Link className='text-white me-3 text-decoration-none' to='/faq'>FaQ</Link>
                         
-                        <Link className='text-white me-3 text-decoration-none' to='/blog'>
+                        <Link className='text-white me-3 text-decoration-none' to='/'>
                             {
                                 user?.uid ?
                                     <>

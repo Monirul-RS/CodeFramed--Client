@@ -1,40 +1,30 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import { Button, Card } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
+const CardDetails = ({ course }) => {
+    console.log(course);
+    const {title, _id, img, total_class, details, class_duration, price, name } = course;
 
-const CardDetails = () => {
-    const [courses, setCourses] = useState([]);
-
-
-    useEffect(() => {
-        fetch('http://localhost:5000/courses')
-            .then(res => res.json())
-            .then(data => setCourses(data))
-    }, [])
 
     return (
-        <div className='mt-5'>
-            {
-                courses.map(course => (
-                    <Card style={{ width: '20rem' }} className="shadow-lg rounded text-start p-2 bg-dark text-white mt-4">
-                        <Card.Img variant="top" src={course.img} />
-                        <Card.Body>
-                            <Card.Title className="text-center">{course.name}</Card.Title>
-                            <Card.Text>
-                                {course.details}
-                            </Card.Text>
-                            <p>Total CLass: {course.totalClass}</p>
-                            <p>Class Duration: {course.classDuration}</p>
-                            <span className='me-5'>Price: {course.price}</span>
-                            <Button variant="primary">Go somewhere</Button>
-                        </Card.Body>
-                    </Card>
-                ))
-            }
-
-
-        </div>
+        <Card className="text-center bg-dark text-white">
+            <Card.Header>{name}</Card.Header>
+            <Card.Body>
+            <Card.Img variant="top" src={img} />
+                <Card.Title className='border rounded mt-1'>{title}</Card.Title>
+                <Card.Text className='text-start'>
+                    {details}
+                </Card.Text>
+                <h6 className='text-start'>Total Class: {total_class}</h6>
+                <h6 className='text-start'>Class Duration: {class_duration}</h6>
+                <div className='d-flex justify-content-between'>
+                    <h6>Price: {price}</h6>
+                    <Button variant="primary">Go somewhere</Button>
+                </div>
+            </Card.Body>
+            <Card.Footer className="text-muted">2 days ago</Card.Footer>
+        </Card>
     );
 };
 

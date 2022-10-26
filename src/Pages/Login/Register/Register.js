@@ -10,21 +10,9 @@ import { useState } from 'react';
 const Register = () => {
 
     const [error, setError] = useState('');
-    const { providerLogin, createUser } = useContext(AuthContext)
+    const { createUser } = useContext(AuthContext)
 
-    const googleProvider = new GoogleAuthProvider()
-
-    const handleGoogleSignIn = () =>{
-        providerLogin(googleProvider)
-        .then(result =>{
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error =>{
-            console.error(error);
-            
-        })
-    }
+ 
 
     const handleSubmit = event =>{
         event.preventDefault();
@@ -68,8 +56,7 @@ const Register = () => {
                     Already have an account? <Link className='text-decoration-none' to="/login">Login</Link>
                 </p>
             </form>
-            <Button onClick={handleGoogleSignIn}>Google</Button>
-            <Button>Github</Button>
+            
         </div>
        
     );

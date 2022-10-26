@@ -3,15 +3,29 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import './Login.css'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 
 
 const Login = () => {
     const [error, setError] = useState('')
 
-    const { signIn } = useContext(AuthContext);
+    const { signIn, providerLogin } = useContext(AuthContext);
 
     const navigate = useNavigate();
+    const googleProvider = new GoogleAuthProvider()
+
+    const handleGoogleSignIn = () =>{
+        providerLogin(googleProvider)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error =>{
+            console.error(error);
+            
+        })
+    }
 
     const handleSubmit = event => {
 
@@ -49,7 +63,7 @@ const Login = () => {
                     Don't have an account? <Link className='text-decoration-none' to="/register">Sign up first</Link>
                 </p>
             </form>
-            <Button>Login via Google</Button>
+            <Button onClick={handleGoogleSignIn}>Login via Google</Button>
             <Button>Login via Github</Button>
         </div>
 
