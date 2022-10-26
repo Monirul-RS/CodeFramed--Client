@@ -5,47 +5,54 @@ import { FaArrowCircleRight } from 'react-icons/fa';
 const Faq = () => {
     return (
         <div className='mt-5'>
-        <h2 className='fw-bold text-decoration-underline mb-5'>Frequently Asked Question.</h2>
-        <Accordion className='container' defaultActiveKey={['0']} alwaysOpen>
-            <Accordion.Item eventKey="0">
-                <Accordion.Header><p className='fs-3 fw-semibold text-primary'>1. How to start a course?</p></Accordion.Header>
-                <Accordion.Body className='fs-4 text-start'>
-                    <FaArrowCircleRight className='text-success' /> Cross-Origin Resource Sharing (CORS) is an HTTP-header based mechanism that allows a server to indicate any origins (domain, scheme, or port) other than its own from which a browser should permit loading resources. CORS also relies on a mechanism by which browsers make a "preflight" request to the server hosting the cross-origin resource, in order to check that the server will permit the actual request. In that preflight, the browser sends headers that indicate the HTTP method and headers that will be used in the actual request.
+            <h2 className='fw-bold text-decoration-underline mb-5'>Frequently Asked Question.</h2>
+            <Accordion className='container' defaultActiveKey={['0']} alwaysOpen>
+                <Accordion.Item eventKey="0">
+                    <Accordion.Header><p className='fs-3 fw-semibold text-primary'>1. How to start a course?</p></Accordion.Header>
+                    <Accordion.Body className='fs-4 text-start'>
+                        <FaArrowCircleRight className='text-success' /> To start a course, please do the following:
+                        <ul>
+                            <li>Register or Login to your Alison Account.. </li>
+                            <li> Once you log in, you can search for a course by going to that page.</li>
+                            <li>Select the course you want to study and select Start Now.</li>
+                        </ul>
+                        This courses are designed to be self-paced, meaning you can take as much or as little time to complete a course as you wish. Most Certificate courses generally take a learner 2-3 hours to complete and Diploma courses take 15 hours to complete.
+                    </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="1">
+                    <Accordion.Header><p className='fs-3 fw-semibold text-primary' >2.How can i pay for my certificate??</p></Accordion.Header>
+                    <Accordion.Body className='fs-4 text-start'>
+                        <FaArrowCircleRight className='text-success' /> There are a number of payment options available:
+                        <ul>
+                            <li>Credit/ Debit Card (facilitated by Stripe) - this is the quickest and easiest option as you can pay through the shopping cart in your Alison Account. </li>
+                            <li> PayPal (if PayPal is operational in your country) - you can also access this payment method through the shopping cart in your Alison Account.</li>
+                            <li>Bank Transfer </li>
+                        </ul>
+                        If you pay by Bank Transfer you will need to reference your Alison ID Number (which you will find on your Dashboard on the left of your screen) and Name (as per your Alison account details) on the transfer so that we know the payment is for you when it is credited to our Bank.
+                    </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="2">
+                    <Accordion.Header><p className='fs-3 fw-semibold text-primary'>3. How do i continue a course? </p></Accordion.Header>
+                    <Accordion.Body className='fs-4 text-start'>
+                        <FaArrowCircleRight className='text-success' /> To locate and continue studying your courses on your Alison account please do the following: 
+                        <ul>
+                            <li> Log in to your account. </li>
+                            <li> Go to your Dashboard. You will see the recent course you have studied:</li>
+                            <li>This will open your active courses. You can then select the course you wish to continue, by clicking Continue Learning:</li>
+                        </ul>
+                    </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="3">
+                    <Accordion.Header><p className='fs-3 fw-semibold text-primary'>4.How do i download my digital certificate?</p></Accordion.Header>
+                    <Accordion.Body className='fs-4 text-start'>
+                        <FaArrowCircleRight className='text-success' /> Once you have completed your purchase, your Digital Certificate/Digital Diploma and Transcript are available to download from the Dashboard of your this Account.
 
-                    An example of a cross-origin request: the front-end JavaScript code served from https://domain-a.com uses XMLHttpRequest to make a request for https://domain-b.com/data.json.
-                </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="1">
-                <Accordion.Header><p className='fs-3 fw-semibold text-primary' >2.How do i continue a course?</p></Accordion.Header>
-                <Accordion.Body className='fs-4 text-start'>
-                    <FaArrowCircleRight className='text-success' /> Firebase helps you develop high-quality apps, grow your user base, and earn more money. Each feature works independently, and they work even better together.
-                    <br />
-                    <FaArrowCircleRight className='text-success'/> Usually, authentication by a server entails the use of a user name and password. Other ways to authenticate can be through :-
-                    <ul>
-                        <li>Cards</li>
-                        <li>Retina Scans</li>
-                        <li>Voice Recognition</li>
-                        <li>Fingerprints</li>
-                    </ul>
-                </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="2">
-                <Accordion.Header><p className='fs-3 fw-semibold text-primary'>3. How can i pay for my certificate?</p></Accordion.Header>
-                <Accordion.Body className='fs-4 text-start'>
-                    <FaArrowCircleRight className='text-success' /> The private route component is similar to the public route, the only change is that redirect URL and authenticate condition.
-                    If the user is not authenticated he will be redirected to the login page and the user can only access the authenticated routes If he is authenticated (Logged in).
-                </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="3">
-                <Accordion.Header><p className='fs-3 fw-semibold text-primary'>4.What is Node? How does Node Work?</p></Accordion.Header>
-                <Accordion.Body className='fs-4 text-start'>
-                    <FaArrowCircleRight className='text-success' /> Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on a JavaScript Engine (i.e. V8 engine) and executes JavaScript code outside a web browser, which was designed to build scalable network applications. Node.js lets developers use JavaScript to write command line tools.
-                    <br />
-                    <FaArrowCircleRight className='text-success' /> It is a used as backend service where javascript works on the server-side of the application. This way javascript is used on both frontend and backend. Node.js runs on chrome v8 engine which converts javascript code into machine code, it is highly scalable, lightweight, fast, and data-intensive.
-                </Accordion.Body>
-            </Accordion.Item>
-        </Accordion>
-    </div>
+                        When you are logged in, expand the Your Completed Courses & Claimed Certificates widget.
+                        <br />
+                    </Accordion.Body>
+                </Accordion.Item>
+            </Accordion>
+        </div>
     );
 };
 
