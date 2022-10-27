@@ -5,13 +5,14 @@ import './Login.css'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { FaGithub, FaGoogle, IconName } from "react-icons/fa";
+import { toast, ToastContainer } from 'react-toastify';
 
 
 
 const Login = () => {
     const [error, setError] = useState('')
 
-    const { signIn, providerLogin } = useContext(AuthContext);
+    const { signIn, providerLogin, setLoading } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -27,6 +28,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 navigate(from, {replace: true});
+                toast.success('Login Successfull');
             })
             .catch(error => {
                 console.error(error);
@@ -40,6 +42,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 navigate(from, {replace: true});
+                toast.success('Login Successfully');
             })
             .catch(error =>
                 console.error(error))
@@ -60,10 +63,14 @@ const Login = () => {
                 form.reset();
                 setError('');
                 navigate(from, {replace: true});
+                toast.success("Login successfully")
             })
             .catch(error => {
                 console.error(error);
                 setError(error.message)
+            })
+            .finally( () =>{
+                setLoading(false)
             })
     }
     return (
@@ -85,6 +92,7 @@ const Login = () => {
                 <FaGoogle className='me-1' /> Login via Google</Button>
             <Button onClick={handleGithubSignIn}>
                 <FaGithub className='me-1' /> Login via Github</Button>
+                <ToastContainer/>
         </div>
 
     );
