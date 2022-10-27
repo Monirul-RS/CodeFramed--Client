@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import './CardDetails.css'
 
 
@@ -24,7 +25,7 @@ const CardDetails = ({ course }) => {
                 <h6 className='text-start'>Class Duration: {class_duration}</h6>
                 <div className='d-flex justify-content-between'>
                     <h6>Price: {price}</h6>
-                    <Button variant="warning text-white fw-bold">Get Premium Access</Button>
+                    <Link to={`/course/${course.id}`}><Button variant="warning text-white fw-bold">Get Premium Access</Button></Link>
                 </div>
             </Card.Body>
             <Card.Footer className="text-muted">

@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import './Login.css'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { FaGithub, FaGoogle, IconName } from "react-icons/fa";
 
 
 
@@ -13,7 +14,8 @@ const Login = () => {
     const { signIn, providerLogin } = useContext(AuthContext);
 
     const navigate = useNavigate();
-    const googleProvider = new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const handleGoogleSignIn = () =>{
         providerLogin(googleProvider)
@@ -25,6 +27,16 @@ const Login = () => {
             console.error(error);
             
         })
+    }
+
+    const handleGithubSignIn = () =>{
+        providerLogin(githubProvider)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error =>
+            console.error(error))
     }
 
     const handleSubmit = event => {
@@ -63,8 +75,10 @@ const Login = () => {
                     Don't have an account? <Link className='text-decoration-none' to="/register">Sign up first</Link>
                 </p>
             </form>
-            <Button onClick={handleGoogleSignIn}>Login via Google</Button>
-            <Button>Login via Github</Button>
+            <Button onClick={handleGoogleSignIn}>
+                <FaGoogle className='me-1'/> Login via Google</Button>
+            <Button onClick={handleGithubSignIn}>
+               <FaGithub className='me-1'/> Login via Github</Button>
         </div>
 
     );
