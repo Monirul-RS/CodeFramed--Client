@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import './Login.css'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
@@ -14,29 +14,35 @@ const Login = () => {
     const { signIn, providerLogin } = useContext(AuthContext);
 
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
 
-    const handleGoogleSignIn = () =>{
+    const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
-        .then(result =>{
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error =>{
-            console.error(error);
-            
-        })
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, {replace: true});
+            })
+            .catch(error => {
+                console.error(error);
+
+            })
     }
 
-    const handleGithubSignIn = () =>{
+    const handleGithubSignIn = () => {
         providerLogin(githubProvider)
-        .then(result =>{
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error =>
-            console.error(error))
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, {replace: true});
+            })
+            .catch(error =>
+                console.error(error))
     }
 
     const handleSubmit = event => {
@@ -53,7 +59,7 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 setError('');
-                navigate('/')
+                navigate(from, {replace: true});
             })
             .catch(error => {
                 console.error(error);
@@ -76,9 +82,9 @@ const Login = () => {
                 </p>
             </form>
             <Button onClick={handleGoogleSignIn}>
-                <FaGoogle className='me-1'/> Login via Google</Button>
+                <FaGoogle className='me-1' /> Login via Google</Button>
             <Button onClick={handleGithubSignIn}>
-               <FaGithub className='me-1'/> Login via Github</Button>
+                <FaGithub className='me-1' /> Login via Github</Button>
         </div>
 
     );

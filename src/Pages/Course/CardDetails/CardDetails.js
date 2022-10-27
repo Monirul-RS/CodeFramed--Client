@@ -1,9 +1,15 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { FaStar } from 'react-icons/fa';
+import { FaFileDownload, FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import './CardDetails.css'
+import './CardDetails.css';
+
+
+
+
+
+// const ref = React.createRef();
 
 
 const CardDetails = ({ course }) => {
@@ -13,11 +19,22 @@ const CardDetails = ({ course }) => {
 
     return (
 
-        <Card className="text-center bg-dark shadow-lg text-white mt-5">
-            <Card.Header className='fs-4 fw-bold text-info'>{name}</Card.Header>
+        <Card className="text-center bg-light shadow-lg text-black mt-5">
+            {/* <Pdf targetRef={ref} filename="code-example.pdf">
+                {({ toPdf }) => <button onClick={toPdf}>Pdf</button>}
+            </Pdf>
+            <div ref={ref}>
+                <h1>React to pdf 2</h1>
+            </div> */}
+            <Card.Header className='fs-4 fw-bold text-primary d-flex justify-content-between'>
+               <div>
+               {name}
+               </div>
+                <div><FaFileDownload className='text-start'></FaFileDownload></div>
+                </Card.Header>
             <Card.Body>
                 <Card.Img variant="top" src={img} />
-                <Card.Title className='border rounded mt-1 text-info p-1'>{title}</Card.Title>
+                <Card.Title className='border rounded mt-1 text-primary p-1'>{title}</Card.Title>
                 <Card.Text className='text-start'>
                     {details}
                 </Card.Text>
@@ -25,7 +42,7 @@ const CardDetails = ({ course }) => {
                 <h6 className='text-start'>Class Duration: {class_duration}</h6>
                 <div className='d-flex justify-content-between'>
                     <h6>Price: {price}</h6>
-                    <Link to={`/course/${course.id}`}><Button variant="warning text-white fw-bold">Get Premium Access</Button></Link>
+                    <Link to={`/checkout/$`}><Button variant="warning text-white fw-bold">Get Premium Access</Button></Link>
                 </div>
             </Card.Body>
             <Card.Footer className="text-muted">
