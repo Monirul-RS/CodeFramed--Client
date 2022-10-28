@@ -20,7 +20,7 @@ const CardDetails = ({ course }) => {
 
     return (
 
-        <Card className="text-center bg-light shadow-lg text-black mt-5">
+        <Card className="text-center bg-light shadow-lg text-black mt-5 mb-5">
 
             <Card.Header className='fs-4 fw-bold text-primary d-flex justify-content-between'>
                 <div>

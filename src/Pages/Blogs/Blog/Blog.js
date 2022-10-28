@@ -4,7 +4,7 @@ import { FaArrowCircleRight } from 'react-icons/fa';
 
 const Blog = () => {
     return (
-        <div className='mt-5'>
+        <div className='mt-5 mb-5'>
             <h2 className='fw-bold text-decoration-underline mb-5'>Question and Answers.</h2>
             <Accordion className='container' defaultActiveKey={['0']} alwaysOpen>
                 <Accordion.Item eventKey="0">
