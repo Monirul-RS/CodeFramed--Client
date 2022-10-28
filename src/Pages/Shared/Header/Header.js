@@ -7,6 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
+import img from "../../../assets/Images/1562687-code-computer-creative-html-process-technology-web-development_107058.ico"
 
 
 const Header = () => {
@@ -26,6 +27,7 @@ const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
             <Container fluid>
+                <img  width='30px' className='me-2 ms-2' src={img} alt="" />
                 <Navbar.Brand href="#home">CodeFramed</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
