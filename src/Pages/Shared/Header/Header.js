@@ -51,7 +51,8 @@ const Header = () => {
                             }
                         </Link>
                         <Link className='text-white me-3 text-decoration-none' to='/profile'>{user?.photoURL ?
-                            <Image
+                            <Image 
+                            data-toggle="tooltip" data-placement="top" title={user.displayName}
                                 style={{ height: '40px' }}
                                 roundedCircle
                                 src={user?.photoURL}
