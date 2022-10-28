@@ -23,17 +23,17 @@ export const router = createBrowserRouter([
             {
                 path: '/course',
                 element: <Course></Course>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://learning-platform-assignment-server-cyan.vercel.app/courses')
             },
             {
                 path: '/course/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://learning-platform-assignment-server-cyan.vercel.app/course/${params.id}`)
             },
             {
-                path: '/checkout/:id',
+                path: '/checkout',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/course/${params.id}`)
+                // loader: ({ params }) => fetch(`https://learning-platform-assignment-server-cyan.vercel.app/course/${params.id}`)
             },
             {
                 path: '/blog',
@@ -52,7 +52,7 @@ export const router = createBrowserRouter([
                 element: <Faq></Faq>
             }
 
-            
+
         ]
     },
     {

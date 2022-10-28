@@ -1,13 +1,12 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
-import { Link, useLoaderData } from 'react-router-dom';
+
 
 const CheckOut = () => {
 
-  const courses = useLoaderData();
+//   const courses = useLoaderData();
     return (
         <div>
-            {
+            {/* {
                 courses.map(course =>(
 
                     <Card style={{ width: '18rem' }} className="box mt-4 grid card-width shadow-lg">
@@ -19,7 +18,7 @@ const CheckOut = () => {
                         </Card>
                 ))
             }
-            
+             */}
         </div>
     );
 };

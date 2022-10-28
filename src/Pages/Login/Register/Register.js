@@ -1,10 +1,10 @@
 import React from 'react';
-import { Form, Link } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
 import './Register.css'
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
-import { GoogleAuthProvider, updateProfile } from 'firebase/auth';
+
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
@@ -12,6 +12,11 @@ const Register = () => {
 
     const [error, setError] = useState('');
     const { createUser, updateUserProfile } = useContext(AuthContext)
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
  
 
@@ -33,8 +38,9 @@ const Register = () => {
             form.reset();
             console.log(user);
             setError('');
-            handleUpdateUserProfile(name, photoURL)
-            toast.success('Sign Up Successfull');
+            handleUpdateUserProfile(name, photoURL);
+            navigate(from, {replace: true});
+            // toast.success('Sign Up Successfull');
 
         })
         .catch(error =>{
