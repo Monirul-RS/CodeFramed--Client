@@ -6,7 +6,7 @@ This website has many online courses. BUy enrolling the courses you can get life
 
 ## Live site 
 
-[Live Website Link: ](https://learning-platform-e36fc.web.app/)
+[Live Website Link: https://learning-platform-e36fc.web.app/
 
 
 ## Features
