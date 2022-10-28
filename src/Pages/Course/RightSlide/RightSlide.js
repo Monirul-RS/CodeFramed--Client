@@ -25,6 +25,7 @@ const RightSlide = () => {
                             <Card.Body className='d-flex justify-content-between'>
                                 <Card.Title>{course.name}</Card.Title>
                                 <Link to={`/course/${course.id}`}><Button variant="primary">Details</Button></Link>
+
                             </Card.Body>
                         </Card>
 
